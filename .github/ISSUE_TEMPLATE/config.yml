@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discussions (usage questions)
+    url: https://github.com/YOUR-ORG/AI-StatPaper-PhD/discussions
+    about: Ask how to apply the pipeline to your paper; share your stage and materials.

@@ -1,0 +1,176 @@
+% =====================================================================
+% 统计学论文 LaTeX 骨架（JASA/统计顶刊风格）
+% 用途：AI 辅助写作时的「格式锚点」——所有生成内容按此结构填充
+% 配套：appendix.tex / supplement.tex / refs.bib
+% 编译：xelatex main.tex && bibtex main && xelatex main.tex && xelatex main.tex
+% =====================================================================
+\documentclass[11pt]{article}
+
+% ---------- 宏包 ----------
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}          % 三线表（统计论文表格标准）
+\usepackage{multirow}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage[capitalize,noabbrev]{cleveref}   % \cref 自动引用定理/图表
+\usepackage{enumitem}
+\usepackage{natbib}            % author-year 引用（统计期刊主流）
+
+% ---------- 定理环境（统计论文标准配置） ----------
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}{Assumption}          % 单独编号，按 Assumption 1 引用
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newproof{pf}{Proof}                          % 或直接用 amsthm 的 proof 环境
+\newproof{pf sketch}{Proof Sketch}            % 正文只放证明思路，全文在附录
+
+% ---------- 记号表（AI 生成记号后必须人工核对一次） ----------
+\newcommand{\X}{\bm{X}}
+\newcommand{\y}{\bm{y}}
+\newcommand{\betaHat}{\hat{\bm{\beta}}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\ind}[1]{\mathbb{1}\{#1\}}
+\newcommand{\dconv}{\xrightarrow{d}}          % 依分布收敛
+\newcommand{\pconv}{\xrightarrow{p}}          % 依概率收敛
+\newcommand{\aconv}{\xrightarrow{a.s.}}       % 几乎必然收敛
+
+% ---------- 自检标记宏（定稿前必须全部清零） ----------
+\newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}            % 待补内容
+\newcommand{\AICHECK}[1]{\textcolor{orange}{[AI-待核验: #1]}} % AI生成待人工核验处
+\newcommand{\REFCHECK}[1]{\textcolor{orange}{[引用核验: #1]}} % 待核验引用
+
+\title{标题：方法名 + 解决的统计问题 + 方法类型（如：A Penalized Likelihood Approach for \ldots）}
+\author{作者\thanks{通讯作者。邮箱。本文代码与数据复现包见 \url{https://github.com/...}。AI 辅助声明见附录 \ref{app:ai-disclosure}。}}
+\date{}
+
+\begin{document}
+\maketitle
+
+% =====================================================================
+% 摘要：150-250 词。结构 = 1句问题背景 + 1句现有方法缺陷 + 1句本文方法
+%       + 1-2句理论保证（明确写出收敛阶/分布结果）+ 1句实验结论 + 1句意义
+% =====================================================================
+\begin{abstract}
+TODO：在什么科学问题与数据形态下（背景），现有方法因什么统计性质缺陷而不适用（缺口），
+本文提出什么方法（机制一句话），在什么条件下建立了什么理论保证（相合性、渐近正态、收敛速率、推断有效性），
+模拟与真实数据实验表明什么（相对基准的量化提升），对什么领域实践有何意义。
+\bigskip
+
+\noindent\textbf{Keywords:} 3-6 个关键词，从 \textit{Statistical Methods} 主题词表中选取（如 high-dimensional inference; penalized regression; robust estimation）
+\end{abstract}
+
+\newpage
+\tableofcontents
+
+% =====================================================================
+\section{Introduction}\label{sec:intro}
+% JASA 风格 Introduction 的五段式骨架（详见 prompts/P17）：
+% (1) 科学问题与数据背景 →(2) 现有方法与统计性质缺口 →(3) 本文方法与机制直觉
+% →(4) 理论贡献与主要结果（列点）→(5) 文献脉络 + 全文结构
+\subsection{A motivating problem}\label{sec:motivate}
+% 用一个具体科学问题/数据集开篇。必须出现：真实数据形态、为什么常规方法失效。
+
+\subsection{Our contributions}\label{sec:contrib}
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{方法贡献：} TODO（一句话：提出 X，其机制是 Y）
+  \item \textbf{理论贡献：} TODO（在 Assumption \ref{asm:1} 下建立
+        $\norm{\betaHat-\beta_0}=O_p(\sqrt{s\log p/n})$ 与 $\sqrt{n}$-渐近正态，支撑后验/置信推断）
+  \item \textbf{计算贡献：} TODO（算法复杂度 $O(n p^2)$ 每迭代，R/Python 包开源）
+\end{enumerate}
+% 注意：贡献列表中每一条都要能在正文/附录中找到对应定理编号或图表编号，见 scripts/notation_check.py
+
+\subsection{Related work}\label{sec:related}
+% 按方法脉络分 2-3 小段；每段结尾必须指出与本文的区别（差分句式）。
+\REFCHECK{本节所有引用逐条通过 scripts/citation_check.py 三层核验}
+
+\subsection{Organization}\label{sec:org}
+% 全文结构 + 附录/补充材料说明。
+
+% =====================================================================
+\section{Methodology}\label{sec:method}
+\subsection{Problem setup and notations}\label{sec:setup}
+% 明确：观测 $(\X,\y)$ 的生成模型；p, n, s 的含义；
+% 所有记号在本文第一次出现处定义，全文不得复用歧义。
+
+\subsection{The proposed estimator}\label{sec:estimator}
+\begin{equation}\label{eq:obj}
+  \betaHat = \arg\min_{\beta\in\mathbb{R}^p}
+  \left\{ \frac{1}{n}\sum_{i=1}^n \ell(y_i; x_i^\top\beta)
+  + \mathcal{P}_\lambda(\beta) \right\},
+\end{equation}
+% 公式后必须紧跟：目标函数每一项的统计含义；$\lambda$ 的作用；
+% 与既有目标函数的形式差异（差分句式）。
+
+\subsection{Algorithm}\label{sec:algorithm}
+% 算法伪代码 + 收敛性说明 + 计算复杂度。
+% 伪代码用 algorithm2e 或 algorithmic；每步可执行（允许他人直接复现）。
+
+% =====================================================================
+\section{Theoretical results}\label{sec:theory}
+% 统计论文理论节的呈现顺序（铁律）：
+% Assumptions（编号、可讨论）→ Main theorem → 讨论 Remark（对比文献/速率最优性）
+% → 证明策略一句话（证明细节全部放附录）。
+
+\begin{assumption}\label{asm:1}
+TODO：设计矩阵的次高斯性 / 稀疏性 $s\log p = o(n)$ / 损失函数的凸性与光滑参数。
+每条假设必须有 remark 讨论：是否可放松、与文献假设的强弱比较。
+\end{assumption}
+
+% 定理引用假设的规范写法：多条假设时用范围引用（需先补足对应假设环境）
+\begin{theorem}\label{thm:main}
+在 Assumption \ref{asm:1} 下，若 $\lambda \asymp \sqrt{\log p/n}$，则以概率至少 $1-\delta$，
+\begin{equation}\label{eq:rate}
+  \norm{\betaHat-\beta_0} \le C \sqrt{\frac{s\log p}{n}}.
+\end{equation}
+\end{theorem}
+
+\begin{remark}
+TODO：速率与 minimax 下界的对齐说明（最优性）；$\lambda$ 选取的实践建议。
+\end{remark}
+
+\begin{pf sketch}
+TODO：三句话给出证明路线（如：基不等式 + 约束误差 + 峰度引理），细节见附录 \ref{app:proof}。
+\end{pf sketch}
+% 证明逐行审查用 skills/stat-theory-check，核对清单见 checklists/C2-理论检查清单.md
+
+% =====================================================================
+\section{Simulation studies}\label{sec:simulation}
+% 模拟实验四要素（缺一不可，详见 checklists/C3）：
+% 设计网格 (scenarios) | 重复次数与随机种子 | 评价指标 | 呈现方式（表/图）
+\subsection{Simulation design}\label{sec:simdesign}
+% 场景网格：n ∈ {200,500}, p ∈ {100,1000}, 误差分布 ∈ {N, t_3, ...}，
+% 重复 500 次；随机种子固定并公开；数据生成过程 DGP 逐条列出。
+
+\subsection{Results}\label{sec:simresults}
+% 表格遵循 three-digits rule（见 docs/08）；报告均值±标准差；
+% 每张表/图必须在正文中被文字解读，且解读与数字一致（scripts/fig_table_check）。
+
+% =====================================================================
+\section{Real data analysis}\label{sec:real}
+% 数据来源与可得性声明 → 预处理（可复现）→ 方法应用 → 结果解读 → 与领域文献结论对比。
+
+% =====================================================================
+\section{Discussion}\label{sec:discussion}
+% 必须包含三块：(1) 方法与理论的局限（诚实、具体）；(2) 可扩展方向；(3) 实践建议。
+% 禁止空话；每条局限要能对应一个可做的研究问题。
+
+% =====================================================================
+\bibliographystyle{chicago}   % JASA 风格；投其他刊按其要求切换
+\bibliography{refs}
+
+% =====================================================================
+\appendix
+\input{appendix}   % 全部证明、额外理论、补充图表（期刊正文页数限制内放不下的）
+
+\newpage
+\input{supplement} % 若期刊分主线+补充材料，则本文件独立编译为 supplement
+
+\end{document}

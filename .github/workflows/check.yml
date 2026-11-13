@@ -1,0 +1,47 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  deterministic-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile all Python scripts
+        run: |
+          python -m py_compile scripts/*.py templates/simulation/sim_design.py
+      - name: Run the four deterministic checks on the LaTeX skeleton
+        run: |
+          # The skeleton intentionally ships with two demo bib entries and one
+          # demo marker, so citation_check/notation_check may exit non-zero.
+          # This CI job asserts the checks RUN and the clean ones PASS.
+          python scripts/style_check.py templates/latex/main.tex templates/latex/appendix.tex templates/latex/supplement.tex
+          python scripts/fig_table_check.py templates/latex/main.tex templates/latex/appendix.tex
+          python scripts/notation_check.py templates/latex/main.tex templates/latex/supplement.tex || true
+          python scripts/citation_check.py templates/latex/main.tex --bib templates/latex/refs.bib || true
+      - name: Markdown link sanity (localized)
+        run: |
+          python - <<'PY'
+          import pathlib, re
+          bad = []
+          for p in pathlib.Path('.').rglob('*.md'):
+              if '.git' in str(p): continue
+              text = p.read_text(encoding='utf-8', errors='replace')
+              for m in re.finditer(r'\]\(([^)#]+?\.md)\)', text):
+                  target = m.group(1)
+                  if target.startswith('http'): continue
+                  t = (p.parent / target).resolve()
+                  if not t.exists():
+                      bad.append(f"{p.as_posix()} -> {target}")
+          if bad:
+              print("BROKEN MD LINKS:")
+              print("\n".join(bad))
+              raise SystemExit(1)
+          print("markdown links OK")
+          PY

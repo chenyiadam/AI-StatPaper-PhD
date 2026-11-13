@@ -1,0 +1,101 @@
+---
+# =====================================================================
+# Quarto 可复现统计论文模板
+# 为什么用 Quarto：代码、图、表、正文同文件，运行即出结果，天然防
+# 「图表与数字对不上」。适合：预印本、复现报告、学位论文、期刊投稿
+# （JASA 等最终排版仍以 LaTeX 为主，Quarto 可转 LaTeX）
+# 编译: quarto render paper.qmd --to pdf   （需 LaTeX 环境）
+# =====================================================================
+title: "标题：方法名 + 统计问题 + 方法类型"
+author:
+  - name: 作者
+    corresponding: true
+    email: xx@xx.edu.cn
+format:
+  pdf:
+    documentclass: article
+    fontsize: 11pt
+    margin: 1in
+    number-sections: true
+    toc: true
+    citeproc: true
+    bibliography: refs.bib
+    bib-style: chicago-author-date
+    include-in-header:
+      text: |
+        \usepackage{amsmath,amssymb,amsthm}
+        \newtheorem{theorem}{Theorem}
+        \newtheorem{lemma}[theorem]{Lemma}
+        \newtheorem{assumption}{Assumption}
+execute:
+  echo: true          # 投稿版可改 false，但保留 true 供内部审阅
+  warning: false
+  message: false
+  cache: true
+  seed: 2026          # 全局随机种子，保证每次渲染结果一致
+knitr:
+  opts_chunk:
+    fig-width: 6
+    fig-height: 4
+---
+
+# {{< kbd R >}}环境与全局设置
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+set.seed(2026)   # 与复现包一致
+```
+
+# 引言
+
+结构见 `prompts/P17-Introduction写作.md`：科学问题 → 方法缺口 → 本文方法
+→ 理论贡献（列点）→ 文献脉络与全文结构。
+
+# 方法
+
+## 模型与记号
+
+$y = X\beta_0 + \varepsilon$，$\varepsilon$ 为次高斯噪声，……
+
+## 提出的估计量
+
+目标函数（正文公式 (1)）：……
+
+# 理论结果
+
+```{theorem, main-thm}
+# 定理由 LaTeX/文字给出；Quarto 的 crossref 用 \@fig-xx / \@eq-xx 引用
+```
+
+**Assumption 1 (次高斯设计).** ……
+
+**Theorem 1.** 在 Assumption 1 下，……
+（证明见附录；正文只放证明思路一句话。）
+
+# 模拟研究
+
+```{r sim-table}
+# 模拟结果直接由脚本生成，表格数字与 CSV 同源，杜绝手抄错
+# sim <- read.csv(here::here("output", "sim_seed2026_rep500.csv"))
+# knitr::kable(head(sim), digits = 3, booktabs = TRUE)
+```
+
+# 真实数据分析
+
+```{r real-data}
+# 数据来源声明 + 获取脚本 + 预处理 + 分析 + 图
+# 图表 caption 必须自含（不看正文也能懂），并注明随机种子
+```
+
+# 讨论
+
+局限（具体、对应可做的问题）→ 扩展方向 → 实践建议。
+
+# 参考文献 {.unnumbered}
+
+::: {#refs}
+:::
+
+# 附录 {.appendix}
+
+全部证明与补充图表。AI 辅助披露放此处（见 `templates/latex/appendix.tex` D 节模板）。

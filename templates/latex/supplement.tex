@@ -1,0 +1,47 @@
+% =====================================================================
+% Supplement（补充材料，独立编译版）：用于期刊主线之外的
+% 附加证明、附加模拟、附加数据集分析
+% 若目标期刊不区分 appendix/supplement，可删除本文件并在 main.tex 中合并
+% =====================================================================
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage{natbib}
+
+% 与 main.tex 保持一致的定理计数（补充材料中定理编号前缀 S）
+\newtheorem{sthm}{Theorem}
+\renewcommand{\thesthm}{S\arabic{sthm}}
+\newtheorem{slem}[sthm]{Lemma}
+\renewcommand{\theslem}{S\arabic{sthm}}
+
+\title{Supplement to ``TODO: 主文标题''}
+\author{作者}
+\date{}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Additional theoretical results}
+% S1 定理及其证明；主文定理依赖的引理若篇幅过长，亦可放此。
+
+\section{Additional simulation studies}
+% 补充场景表：建议主文放代表性 2-3 场景，其余全量放补充材料。
+% 每张表需在复现包中有对应脚本（sim/文件夹，随机种子固定）。
+
+\section{Additional real data analysis}
+% 第二个数据集的全部分析（统计论文顶刊常要求至少两个真实数据集或一个数据集+领域佐证）。
+
+\section{Reproducibility statement}
+% 复现包结构声明（TIER 4.0 风格）：
+% data/      原始数据（或获取说明与哈希校验）
+% code/      全部脚本，随机种子固定，requirements.txt/environment.yml 锁定环境
+% output/    一键重新生成的全部图表
+% 运行方式、预计时长、软硬件配置逐条列出。
+
+\bibliographystyle{chicago}
+\bibliography{refs}
+\end{document}

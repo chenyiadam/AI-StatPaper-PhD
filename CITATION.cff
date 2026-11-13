@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: AI-StatPaper-PhD: a gated pipeline, prompt library and skill pack for writing PhD-level statistics papers with AI
+message: >-
+  If you use this project, please cite it using the
+  metadata below.
+type: software
+authors:
+  - name: AI-StatPaper-PhD Contributors
+version: 1.1.0
+date-released: "2026-11-13"
+license: MIT
+repository-code: "https://github.com/YOUR-ORG/AI-StatPaper-PhD"
+url: "https://github.com/YOUR-ORG/AI-StatPaper-PhD"
+abstract: >-
+  An open-source engineering project for statistics PhD students and
+  early-career researchers that turns "writing papers with AI" into an
+  executable, auditable, reproducible pipeline: a seven-stage gated
+  workflow (research question, literature, theory, experiments, writing,
+  mock review, journal adaptation & submission), 32 copy-paste prompts,
+  9 installable agent skills, 7 checklists, 4 deterministic check scripts
+  (citation consistency, notation, figures/tables, AI-flavor symbols),
+  reproducible templates (JASA-style LaTeX, Quarto, R/Python simulation
+  skeletons), and 9 statistics-journal style profiles for reshaping a
+  draft into venue-ready form.
+keywords:
+  - statistics
+  - academic writing
+  - large language models
+  - reproducibility
+  - peer review
+  - scholarly writing
