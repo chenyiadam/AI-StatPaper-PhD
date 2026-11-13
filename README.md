@@ -64,7 +64,7 @@ ensemble 聚合；**OpenScholar** 的 Self-Feedback 与引文核验；
 ## 30 秒上手
 
 ```bash
-git clone <本仓库>
+git clone https://github.com/chenyiadam/AI-StatPaper-PhD.git
 # 1) 体验机械检查（无需任何模型）
 python scripts/citation_check.py templates/latex/main.tex templates/latex/refs.bib
 python scripts/notation_check.py templates/latex/main.tex

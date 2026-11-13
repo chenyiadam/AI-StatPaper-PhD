@@ -1,16 +1,16 @@
 cff-version: 1.2.0
-title: AI-StatPaper-PhD: a gated pipeline, prompt library and skill pack for writing PhD-level statistics papers with AI
+title: "AI-StatPaper-PhD: a gated pipeline, prompt library and skill pack for writing PhD-level statistics papers with AI"
 message: >-
   If you use this project, please cite it using the
   metadata below.
 type: software
 authors:
-  - name: AI-StatPaper-PhD Contributors
+  - name: chenyiadam
 version: 1.1.0
 date-released: "2026-11-13"
 license: MIT
-repository-code: "https://github.com/YOUR-ORG/AI-StatPaper-PhD"
-url: "https://github.com/YOUR-ORG/AI-StatPaper-PhD"
+repository-code: "https://github.com/chenyiadam/AI-StatPaper-PhD.git"
+url: "https://github.com/chenyiadam/AI-StatPaper-PhD"
 abstract: >-
   An open-source engineering project for statistics PhD students and
   early-career researchers that turns "writing papers with AI" into an
