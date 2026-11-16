@@ -5,7 +5,9 @@
 > Usage: start 7 days before the planned submission date, one group per day. Click submit only when every box
 > is ticked.
 > Combined use: first run the three simulated reviewers ([P24](../../prompts/06-审稿与投稿.md)) → fix →
-> then run this checklist.
+> **walk through the [C8 final-draft item-by-item checklist](C8-final-draft-checklist.md)
+> (item-level adjudication of format / citations / theory / language / experiments,
+> including the one-shot `presubmit_check.py`)** → then run this checklist.
 
 ## Day −7: Content consistency
 
