@@ -53,7 +53,7 @@ The methodology reuses proven open-source practices (**Polaris**: deterministic 
 ```bash
 git clone https://github.com/chenyiadam/AI-StatPaper-PhD.git
 # 1) Try the deterministic checks — no model needed
-python scripts/citation_check.py templates/latex/main.tex templates/latex/refs.bib
+python scripts/citation_check.py templates/latex/main.tex --bib templates/latex/refs.bib
 python scripts/notation_check.py templates/latex/main.tex
 python scripts/style_check.py templates/latex/main.tex    # AI-flavor symbols & words
 # or run everything in one shot (final-draft orchestrator):

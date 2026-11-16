@@ -11,7 +11,7 @@ metadata:
 ## Hard disciplines
 
 1. **Scripts do the mechanical layer; humans adjudicate the semantic layer**:
-   this skill dispatches the four scripts in `scripts/`, and every finding is
+   this skill dispatches the five scripts in `scripts/`, and every finding is
    adjudicated by a human before any fix.
 2. **Two passes before verdicts**: all "broken reference" judgments happen
    after latexmk / two xelatex runs + bibtex.

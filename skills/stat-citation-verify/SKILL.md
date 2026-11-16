@@ -61,7 +61,7 @@ L3 支撑：支撑/部分支撑/需改写/无法判断（原文证据位置：�
 
 ## 批量模式（全文核验）
 
-1. `scripts/citation_check.py main.tex refs.bib` 出形式问题清单。
+1. `scripts/citation_check.py main.tex --bib refs.bib` 出形式问题清单。
 2. 逐条生成核验卡（L1/L2 可批处理，L3 必须逐条人工）。
 3. 汇总表：总条数 / L1 通过率 / L2 修正数 / L3 状态分布 / 待人工项。
 4. 收尾过 `checklists/C6-引用核验清单.md` 收尾组（密度、分布、记录留存）。

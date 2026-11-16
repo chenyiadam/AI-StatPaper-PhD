@@ -12,7 +12,7 @@
 2. **期刊风格档案**：`journals/` 新增档案（Bernoulli、EJS、JBES、
    Biostatistics、Annals of Applied Probability、更多中文核心…），
    或修正现有档案与官网最新指南的差异（注明核对日期）。
-3. **检查脚本**：`scripts/` 现有四个（引用/记号/图表/AI味风格），
+3. **检查脚本**：`scripts/` 现有五个（引用/记号/图表/AI味风格/定稿一键编排），
    可加：数字对账脚本（正文数字 vs 实验输出 ±0.01）、
    术语一致性脚本（vs glossary）、BibTeX 字段与 Crossref 自动比对。
 4. **审稿人吐槽转化**：把真实审稿意见转成清单条目

@@ -67,7 +67,7 @@ ensemble 聚合；**OpenScholar** 的 Self-Feedback 与引文核验；
 ```bash
 git clone https://github.com/chenyiadam/AI-StatPaper-PhD.git
 # 1) 体验机械检查（无需任何模型）
-python scripts/citation_check.py templates/latex/main.tex templates/latex/refs.bib
+python scripts/citation_check.py templates/latex/main.tex --bib templates/latex/refs.bib
 python scripts/notation_check.py templates/latex/main.tex
 python scripts/style_check.py templates/latex/main.tex    # AI 味符号与用词扫描
 # 或一键运行全部检查（定稿编排器，含摘要词数/列表滥用/定理-附录对应等）：

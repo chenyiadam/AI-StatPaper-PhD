@@ -20,7 +20,7 @@ metadata:
 4. **Degrade loudly**: unverifiable content is marked `[AI-UNVERIFIED]` for the
    author — it is never silently mixed into the text.
 
-## The seven-stage pipeline and its gates
+## The nine-stage pipeline and its gates
 
 ```
 S0 charter (stat-postsub + P33) ──▶ S1 question ──gate1──▶ S2 literature
@@ -58,7 +58,7 @@ journals/) ──gate7──▶ S8 submission execution & post-publication
 ```text
 I am writing a statistics paper:
 - area: {{high-dimensional inference / causal inference / longitudinal data / ...}}
-- current stage: {{S1–S7 or "not sure"}}
+- current stage: {{S0–S8 or "not sure"}}
 - existing materials: {{e.g., a one-page problem statement + 30 literature notes}}
 - this session's goal: {{e.g., finish reviewing the proof of Theorem 1}}
 Follow the stat-pipeline protocol: locate my stage, check gate gaps, and give me

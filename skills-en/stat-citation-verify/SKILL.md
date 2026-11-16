@@ -73,7 +73,7 @@ Log: date · actions · PDF path
 
 ## Batch mode (whole-paper sweep)
 
-1. `scripts/citation_check.py main.tex refs.bib` for form issues.
+1. `scripts/citation_check.py main.tex --bib refs.bib` for form issues.
 2. A card per citation (L1/L2 batchable; L3 one by one, by hand).
 3. Summary: total / L1 pass rate / L2 fixes / L3 distribution / pending items.
 4. Close with `checklists/en/C6-citation-verification.md` (density, recency

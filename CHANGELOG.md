@@ -6,6 +6,12 @@ versioning follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+- Documentation consistency pass: the nine-stage (S0–S8) pipeline, 38 prompts,
+  five check scripts, C8 / `presubmit_check.py` gates, S8 timeline and docs/11
+  navigation, plus `--bib` command examples, are now aligned across `docs/`,
+  `prompts/`, `skills/`, `journals/` and both READMEs.
+
 ### Planned
 - English translations of `docs/` methodology essays and `examples/`
 - Number-reconciliation script (paper numbers ↔ experiment output, ±0.01)

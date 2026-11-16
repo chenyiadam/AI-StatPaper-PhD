@@ -120,7 +120,7 @@ Part 3 [Risk list]: edits that might have touched meaning, for my adjudication.
 
 **When**: after style rewriting.
 **Input**: the venue profile's format section + current LaTeX sources + bib.
-**Verify**: zero compile errors; the four scripts pass; the supplement compiles standalone.
+**Verify**: zero compile errors; all five scripts pass; the supplement compiles standalone.
 
 ```text
 You are a LaTeX submission engineer. Produce a "migration work order" to move
@@ -142,7 +142,7 @@ Work order, in order:
 5. Anonymization (if required): leak scan list (acknowledgments / repo links /
    self-citations / paths).
 6. Validation: the post-migration command list
-   (2× compile + bibtex + the four check scripts + standalone supplement build).
+   (2× compile + bibtex + the five check scripts + standalone supplement build).
 
 Output as a checkable list, each item tagged "manual / scriptable".
 ```

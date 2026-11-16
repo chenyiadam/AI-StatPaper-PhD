@@ -48,7 +48,7 @@ Journal selection → style profiling (P28) → structural re-arrangement (P29) 
 | 3 Structural re-arrangement | First draft + the journal's structural conventions | Section migration plan + re-arranged draft | The contribution–section–theorem mapping never breaks |
 | 4 Restyling | Re-arranged draft + rule card + P20 protocol | Journal-styled manuscript | Paragraph-level three-column output, adjudicated paragraph by paragraph |
 | 5 Format migration | Styled manuscript + the journal's format requirements | Compilable submission version | Template / citation style / figures and tables fully migrated |
-| 6 Compliance final check | Submission version + the profile's adaptation checklist | Zero-blocker checklist | C7 + every item of the profile checklist passes |
+| 6 Compliance final check | Submission version + the profile's adaptation checklist | Zero-blocker checklist | C8 three passes + C7 + every item of the profile checklist passes |
 | 7 Submission package | Previous step | All files + cover letter | Use [`templates/cover-letter.md`](../../templates/cover-letter.md) |
 
 ## Before and after: what "restyled for the journal" means
