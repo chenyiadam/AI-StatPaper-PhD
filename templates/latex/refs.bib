@@ -1,0 +1,33 @@
+% refs.bib —— 参考文献库
+% 规则（对应 checklists/C6-引用核验清单）：
+% 1. 每条 BibTeX 记录必须与 DOI/出版商页面逐字段核对（AI 生成的 bib 条目默认不可信）
+% 2. 引用键命名统一：作者年份+首词，如 tibshirani1996regression, fan2001variable
+% 3. 文章类必须有 volume/number/pages；缺失字段者视为待核验，脚本会标记
+% 4. 正文 \citep/\citet 引用的键与本文件必须双向一致（scripts/citation_check.py 检查）
+
+@article{tibshirani1996regression,
+  author  = {Tibshirani, Robert},
+  title   = {Regression Shrinkage and Selection via the Lasso},
+  journal = {Journal of the Royal Statistical Society: Series B (Methodological)},
+  year    = {1996},
+  volume  = {58},
+  number  = {1},
+  pages   = {267--288},
+  doi     = {10.1111/j.2517-6161.1996.tb02080.x}
+}
+
+@article{fan2001variable,
+  author  = {Fan, Jianqing and Li, Runze},
+  title   = {Variable Selection via Nonconcave Penalized Likelihood and Its Oracle Properties},
+  journal = {Journal of the American Statistical Association},
+  year    = {2001},
+  volume  = {96},
+  number  = {456},
+  pages   = {1348--1360},
+  doi     = {10.1198/016214501753382273}
+}
+
+% TODO：由文献调研阶段填充；每条都经过三层核验：
+%   L1 对得上文献池（真实存在的论文）
+%   L2 字段一致（作者-年份-期刊-卷期页-DOI 与原文一致）
+%   L3 内容支撑（所引论点确实被原文支撑，非转引、非断章取义）

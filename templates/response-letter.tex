@@ -1,0 +1,62 @@
+% =====================================================================
+% 审稿回复信（Response Letter）LaTeX 模板 —— 配 prompts/06 P26
+% 结构：意见（斜体，逐条编号）→ 回复（正体）→ 修改位置（标蓝）
+% 编译：xelatex response.tex（两遍）
+% 纪律：每条回复先结论后论据 ≤ 250 词；每个 "已修改" 必须对应真实 diff
+% =====================================================================
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+
+% 意见与回复样式
+\usepackage{amsmath,amssymb}
+\newenvironment{reviewer}{\begin{quote}\itshape}{\end{quote}}
+\newcommand{\resp}[1]{\noindent\textbf{回复：}#1\par\medskip}
+\newcommand{\change}[1]{\textcolor{blue}{#1}}   % 修改处标蓝
+\newcommand{\loc}[1]{\textcolor{blue}{（改动位置：#1）}}
+
+\title{Response to Reviewers\\
+\large Manuscript: ``{{论文短标题}}'' — Manuscript ID {{编号}}}
+\author{通信作者（代表全体作者）}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+We thank the editor and the three reviewers for their careful reading and
+constructive comments, which have substantially improved the manuscript.
+Below we respond to each comment; all changes are marked in blue in the
+revised manuscript. (总体开场三句即可，不堆砌。)
+
+% ============ Reviewer 1 ============
+\section*{Reviewer 1}
+
+\begin{reviewer}
+R1.1 {{粘贴审稿意见原文（斜体引用，不要改写对方措辞）}}
+\end{reviewer}
+\resp{感谢指出。我们同意并在修改稿中……（先给结论 → 改动内容与新文本引用
+≤3行 → 为什么能解决关切。）\loc{Section 3.2, p.7, lines 12--18}}
+
+\begin{reviewer}
+R1.2 {{意见}}
+\end{reviewer}
+\resp{（解释型）我们理解其关切在于……我们保留原设计，原因是……
+为降低歧义，我们补充了敏感性分析（\change{新附录 A.3}）。}
+
+% ============ Reviewer 2 ============
+\section*{Reviewer 2}
+% 同上结构；疑似误读的意见先复述：
+% \resp{If we understand correctly, the concern is ... If so, we would
+% like to clarify that ...（绝不写"审稿人误解了"）}
+
+% ============ 汇总表（可选但推荐）============
+\section*{Summary of Changes}
+\begin{description}[style=nextline, leftmargin=1.5em]
+  \item[方法与理论] \change{……}
+  \item[模拟与数据] \change{……}
+  \item[表述与格式] \change{……}
+\end{description}
+
+\end{document}

@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# R
+*.Rhistory
+*.RData
+.Rproj.user/
+
+# LaTeX 构建产物
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+
+# Quarto
+*.quarto_ipynb
+_site/
+_freeze/
+
+# 论文工作区（使用本仓库开工时的本地产物）
+project/ai_logs/
+project/notes/
+output/
+*.csv.bak
+
+# 编辑器与系统
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
